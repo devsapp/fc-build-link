@@ -7,7 +7,7 @@ export default class ComponentDemo {
    * @param inputs
    * @returns
    */
-  public async test(inputs: InputProps) {
+  async test(inputs: InputProps) {
     logger.debug(`input: ${JSON.stringify(inputs.props)}`);
     logger.info('command test');
     return { hello: 'world' };
