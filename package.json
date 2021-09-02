@@ -29,21 +29,22 @@
     "fix": "f2elint fix"
   },
   "dependencies": {
-    "@serverless-devs/core": "^0.0.*"
+    "@serverless-devs/core": "^0.0.*",
+    "fs-extra": "^10.0.0",
+    "git-ignore-parser": "0.0.2",
+    "ignore": "^5.1.8",
+    "rimraf": "^3.0.2",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/lodash": "^4.14.172",
     "@types/node": "^14.0.23",
+    "@types/rimraf": "^3.0.2",
     "@vercel/ncc": "^0.24.0",
     "f2elint": "^1.2.0",
-    "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
     "typedoc": "^0.20.35",
-    "typescript": "^3.9.7"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "f2elint commit-file-scan",
-      "commit-msg": "f2elint commit-msg-scan"
-    }
+    "typescript": "^4.4.2"
   }
 }
