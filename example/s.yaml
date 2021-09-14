@@ -6,9 +6,8 @@ services:
   component-test:
     component: ${path(..)}
     props:
-      # codeUri: ../node_modules
       codeUri: ../dist
       serviceName: build-link
       functionName: test
-      excludeFiles:
-        - common
+      # excludeFiles:
+      #   - common

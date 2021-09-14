@@ -1,10 +1,39 @@
 Type: Component
 Name: fc-build-link
-Provider:
-  - 其它
 Version: 0.0.1
-Description: 初始化component模板
-HomePage: https://www.serverless-devs.com
-Tags: #标签详情
-  - 模板
 Category: 其它
+HomePage: 'https://github.com/devsapp/fc-build-link'
+Tags:
+  - 其它
+Description: 用于生成指定文件夹的软链。
+Commands:
+  link: 生成文件软链接
+Properties:
+  codeUri:
+    Description: 代码包地址
+    Required: true
+    Example: ./code
+    Default: ''
+    Type:
+      - String
+  serviceName:
+    Description: 服务名称
+    Required: true
+    Example: serviceName
+    Default: ''
+    Type:
+      - String
+  functionName:
+    Description: 函数名称
+    Required: true
+    Example: functionName
+    Default: ''
+    Type:
+      - String
+  excludeFiles:
+    Description: 需要忽略的文件或者文件夹，写法可参考 .gitignore
+    Required: false
+    Example: ''
+    Default: ''
+    Type:
+      - List<String>

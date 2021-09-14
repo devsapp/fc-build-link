@@ -21,7 +21,7 @@
   "scripts": {
     "start": "npm run watch",
     "watch": "tsc -w",
-    "prebuild": "rimraf doc && rimraf package-lock.json && rimraf dist && rimraf node_modules && npm i",
+    "prebuild": "npm i rimraf --no-save && rimraf doc && rimraf package-lock.json && rimraf dist && rimraf node_modules && npm i",
     "build": "npm run fix && npm run lint && ncc build src/index.ts -m -e @serverless-devs/core -o dist",
     "postbuild": "npm run doc",
     "doc": "npx typedoc src/index.ts --json doc/doc.json --out doc",

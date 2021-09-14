@@ -4,4 +4,7 @@ module.exports = {
     "prettier",
     'prettier/@typescript-eslint',
   ],
+  rules: {
+    'no-await-in-loop': 'off',
+  }
 };
