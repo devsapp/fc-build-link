@@ -53,15 +53,15 @@ export default class SymbolicLinkGenerator {
     } else {
       const lastBuildDocument = this.readFileJSON(this.buildFilesListJSONPath);
 
-      const currentBuildDirFilse = await this.walkDir(this.sourceDir, lastBuildDocument);
+      const currentBuildDirFiles = await this.walkDir(this.sourceDir, lastBuildDocument);
 
-      fse.outputFileSync(this.buildFilesListJSONPath, JSON.stringify(currentBuildDirFilse, null, 2));
+      fse.outputFileSync(this.buildFilesListJSONPath, JSON.stringify(currentBuildDirFiles, null, 2));
     }
   }
 
   protected async walkDir(sourceDirPath: string, lastBuildFiles: IBuildFile): Promise<IBuildFile> {
     // 记录 build 的目录结构
-    const currentBuildDirFilse: IBuildFile = {};
+    const currentBuildDirFiles: IBuildFile = {};
 
     // 遍历代码目录，并忽略需要忽略的文件
     const sourceFilenames = await fse.readdir(sourceDirPath);
@@ -105,14 +105,14 @@ export default class SymbolicLinkGenerator {
         rimraf.sync(buildFilePath);
         fse.symlinkSync(sourceFilePath, buildFilePath, 'junction');
       }
-      currentBuildDirFilse[filename] = currentDeliveryFile;
+      currentBuildDirFiles[filename] = currentDeliveryFile;
     }
 
     // 经过上面的遍历， lastBuildDocument 剩下的属性是多余的软链，需要删除
     Object.keys(lastBuildFiles).forEach(buildFilename => rimraf.sync(path.join(buildDirPath, buildFilename)));
 
     // 将数据返回
-    return currentBuildDirFilse;
+    return currentBuildDirFiles;
   }
 
   protected filter(source: string) {
