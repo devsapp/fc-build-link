@@ -17,6 +17,8 @@ package-lock.json
 .env
 
 README.md
+doc/*
+!doc/doc.json
 ./examples
 ./test
 ./Makefile

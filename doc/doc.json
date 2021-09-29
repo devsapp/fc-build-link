@@ -1,0 +1,220 @@
+{
+	"id": 0,
+	"name": "fc-build-link",
+	"kind": 0,
+	"kindString": "Project",
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 1,
+			"name": "default",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {},
+			"children": [
+				{
+					"id": 2,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 3,
+							"name": "new default",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"id": 1,
+								"name": "default"
+							}
+						}
+					]
+				},
+				{
+					"id": 10,
+					"name": "handlerInputs",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPrivate": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 54,
+							"character": 23
+						}
+					],
+					"signatures": [
+						{
+							"id": 11,
+							"name": "handlerInputs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 12,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "InputProps"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IWithProps"
+							}
+						}
+					]
+				},
+				{
+					"id": 4,
+					"name": "link",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 22,
+							"character": 12
+						}
+					],
+					"signatures": [
+						{
+							"id": 5,
+							"name": "link",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "demo 实例",
+								"returns": "\n"
+							},
+							"parameters": [
+								{
+									"id": 6,
+									"name": "inputs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {},
+									"type": {
+										"type": "reference",
+										"name": "InputProps"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				},
+				{
+					"id": 7,
+					"name": "linkWithProps",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 27,
+							"character": 21
+						}
+					],
+					"signatures": [
+						{
+							"id": 8,
+							"name": "linkWithProps",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 9,
+									"name": "props",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "IWithProps"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								],
+								"name": "Promise"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"kind": 512,
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Methods",
+					"kind": 2048,
+					"children": [
+						10,
+						4,
+						7
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 16,
+					"character": 30
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"kind": 128,
+			"children": [
+				1
+			]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "index.ts",
+			"line": 1,
+			"character": 0
+		}
+	]
+}
