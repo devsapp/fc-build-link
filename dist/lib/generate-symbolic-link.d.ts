@@ -5,7 +5,7 @@ interface IBuildFile {
 interface IFileAttributes {
     sourceFileType: ISourceFileType;
     buildFileType: 'dir' | 'symbolicLink';
-    buildFilePath?: string;
+    buildFilePath: string;
     sourcePath?: string;
     children?: IBuildFile;
 }

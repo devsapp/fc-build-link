@@ -15,7 +15,7 @@ interface IBuildFile {
 interface IFileAttributes {
   sourceFileType: ISourceFileType;
   buildFileType: 'dir' | 'symbolicLink';
-  buildFilePath?: string;
+  buildFilePath: string;
   sourcePath?: string;
   children?: IBuildFile;
 }
@@ -92,6 +92,7 @@ export default class SymbolicLinkGenerator {
       const currentDeliveryFile: IFileAttributes = {
         sourceFileType,
         buildFileType: 'symbolicLink',
+        buildFilePath: filenameLastBuild?.buildFilePath,
         sourcePath: sourceFilePath,
       };
 

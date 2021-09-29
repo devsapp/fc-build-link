@@ -1,6 +1,6 @@
 {
   "name": "fc-build-link",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This is a component demo for Serverless Devs Tool ",
   "autoInstall": false,
   "homepage": "https://www.serverless-devs.com",
