@@ -15,6 +15,7 @@ interface IBuildFile {
 interface IFileAttributes {
   sourceFileType: ISourceFileType;
   buildFileType: 'dir' | 'symbolicLink';
+  buildFilePath?: string;
   sourcePath?: string;
   children?: IBuildFile;
 }
@@ -96,6 +97,7 @@ export default class SymbolicLinkGenerator {
 
       // 如果是文件夹，递归遍历
       if (sourceFileType === 'dir') {
+        currentDeliveryFile.buildFilePath = buildDirPath;
         currentDeliveryFile.buildFileType = 'dir';
         currentDeliveryFile.children = await this.walkDir(sourceFilePath, filenameLastBuild?.children || {});
 
@@ -104,6 +106,8 @@ export default class SymbolicLinkGenerator {
         const buildFilePath = path.join(buildDirPath, filename);
         rimraf.sync(buildFilePath);
         fse.symlinkSync(sourceFilePath, buildFilePath, 'junction');
+
+        currentDeliveryFile.buildFilePath = buildFilePath;
       }
       currentBuildDirFiles[filename] = currentDeliveryFile;
     }
