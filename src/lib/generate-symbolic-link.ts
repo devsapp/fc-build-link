@@ -92,13 +92,12 @@ export default class SymbolicLinkGenerator {
       const currentDeliveryFile: IFileAttributes = {
         sourceFileType,
         buildFileType: 'symbolicLink',
-        buildFilePath: filenameLastBuild?.buildFilePath,
+        buildFilePath: path.join(buildDirPath, filename),
         sourcePath: sourceFilePath,
       };
 
       // 如果是文件夹，递归遍历
       if (sourceFileType === 'dir') {
-        currentDeliveryFile.buildFilePath = buildDirPath;
         currentDeliveryFile.buildFileType = 'dir';
         currentDeliveryFile.children = await this.walkDir(sourceFilePath, filenameLastBuild?.children || {});
 
