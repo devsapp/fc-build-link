@@ -14,7 +14,7 @@ interface IBuildFile {
 
 interface IFileAttributes {
   sourceFileType: ISourceFileType;
-  buildFileType: 'dir' | 'symbolicLink';
+  buildFileType: 'dir' | 'link';
   buildFilePath: string;
   sourcePath?: string;
   children?: IBuildFile;
@@ -91,7 +91,7 @@ export default class SymbolicLinkGenerator {
       // 记录本次 build 的文件属性
       const currentDeliveryFile: IFileAttributes = {
         sourceFileType,
-        buildFileType: 'symbolicLink',
+        buildFileType: 'link',
         buildFilePath: path.join(buildDirPath, filename),
         sourcePath: sourceFilePath,
       };
@@ -102,10 +102,10 @@ export default class SymbolicLinkGenerator {
         currentDeliveryFile.children = await this.walkDir(sourceFilePath, filenameLastBuild?.children || {});
 
         // 判断之前是否生成过软链，如果没有生成过软链，则尝试删除之前遗留的文件，然后创建一个软链
-      } else if (_.isEmpty(filenameLastBuild) || filenameLastBuild.buildFileType !== 'symbolicLink') {
+      } else if (_.isEmpty(filenameLastBuild) || filenameLastBuild.buildFileType !== 'link') {
         const buildFilePath = path.join(buildDirPath, filename);
         rimraf.sync(buildFilePath);
-        fse.symlinkSync(sourceFilePath, buildFilePath, 'junction');
+        fse.linkSync(sourceFilePath, buildFilePath);
 
         currentDeliveryFile.buildFilePath = buildFilePath;
       }
